@@ -1,0 +1,32 @@
+{
+    "development": {
+        "username": "lbcc_user",
+        "password": "lbcc_pwd",
+        "database": "lbcc_db",
+        "host": "127.0.0.1",
+        "port": "5433",
+        "schema": "lbcc",
+        "dialect": "postgres",
+        "operatorsAliases": 0,
+        "force": true,
+        "define": {
+            "freezeTableName": true
+        }
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "database_test",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "operatorsAliases": 0
+    },
+    "production": {
+        "username": "root",
+        "password": null,
+        "database": "database_production",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "operatorsAliases": 0
+    }
+}

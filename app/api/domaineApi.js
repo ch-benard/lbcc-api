@@ -2,7 +2,7 @@ module.exports = (app, db) => {
     app.get('/domaines', (req, res) =>
         db.domaine
             .findAll({
-                include: 'user',
+                include: 'users',
             })
             .then((result) => res.json(result))
     );

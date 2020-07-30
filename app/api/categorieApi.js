@@ -3,10 +3,19 @@ module.exports = (app, db) => {
     //     db.categorie.findAll().then((result) => res.json(result))
     // );
 
+    app.use(function (req, res, next) {
+        res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+        res.header(
+            'Access-Control-Allow-Headers',
+            'Origin, X-Requested-With, Content-Type, Accept'
+        );
+        next();
+    });
+
     app.get('/categories', (req, res) => {
         db.categorie
             .findAll({
-                include: 'sousCategories',            
+                include: 'sousCategories',
             })
             .then((result) => res.json(result));
     });
@@ -14,7 +23,7 @@ module.exports = (app, db) => {
     app.get('/categorie/:id', (req, res) =>
         db.categorie
             .findByPk(req.params.id, {
-                include: 'sousCategories'
+                include: 'sousCategories',
             })
             .then((result) => res.json(result))
     );
